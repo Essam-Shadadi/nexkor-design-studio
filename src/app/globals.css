@@ -1,26 +1,40 @@
-@import "tailwindcss";
+/* Tailwind v3 directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Base tweaks */
+:root { color-scheme: light dark; }
+html { scroll-behavior: smooth; }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Accessible focus styles */
+:where(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid #1A73E8; /* nk.blue */
+  outline-offset: 2px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Brand variables (optional) */
+:root {
+  --background: #F9FAFB;   /* nk.bg */
+  --foreground: #111827;   /* nk.charcoal */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0B1220; /* nk.bgDark */
+    --foreground: #F8FAFC;
   }
 }
 
+/* Apply brand variables */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Remove these if you copied them from Next’s template:
+   - @import "tailwindcss";
+   - @theme inline { ... }
+   - --font-geist-sans / --font-geist-mono
+*/
