@@ -4,26 +4,32 @@
 @tailwind utilities;
 
 /* Base tweaks */
-:root { color-scheme: light dark; }
-html { scroll-behavior: smooth; }
-* { -webkit-tap-highlight-color: transparent; }
+:root {
+  color-scheme: light dark;
+}
+html {
+  scroll-behavior: smooth;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 /* Accessible focus styles */
 :where(button, a, input, select, textarea):focus-visible {
-  outline: 2px solid #1A73E8; /* nk.blue */
+  outline: 2px solid #1a73e8; /* nk.blue */
   outline-offset: 2px;
 }
 
 /* Brand variables (optional) */
 :root {
-  --background: #F9FAFB;   /* nk.bg */
-  --foreground: #111827;   /* nk.charcoal */
+  --background: #f9fafb; /* nk.bg */
+  --foreground: #111827; /* nk.charcoal */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0B1220; /* nk.bgDark */
-    --foreground: #F8FAFC;
+    --background: #0b1220; /* nk.bgDark */
+    --foreground: #f8fafc;
   }
 }
 
