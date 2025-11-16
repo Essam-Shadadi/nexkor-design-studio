@@ -26,12 +26,15 @@ html {
   --foreground: #111827; /* nk.charcoal */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b1220; /* nk.bgDark */
-    --foreground: #f8fafc;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
+
 
 /* Apply brand variables */
 body {
