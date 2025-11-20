@@ -1,32 +1,52 @@
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/Card";
+import { Container } from "@/components/ui/Container";
+import { Grid } from "@/components/ui/Grid";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
+
+export const metadata = {
+  title: "Design System – Components",
+};
 
 export default function ComponentsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
-      <h1 className="text-4xl font-heading mb-4">Components</h1>
+    <Container className="py-10 space-y-10">
+      <h1 className="text-4xl font-heading mb-4">Component Gallery</h1>
 
-      <section className="mb-10">
-        <h2 className="font-heading text-2xl mb-3">Buttons</h2>
-        <div className="flex gap-3 flex-wrap">
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button loading>Loading…</Button>
-        </div>
-      </section>
-
+      {/* Cards */}
       <section>
-        <h2 className="font-heading text-2xl mb-3">Badges</h2>
-        <div className="flex gap-3 flex-wrap">
-          <Badge>Gray</Badge>
-          <Badge variant="blue">Blue</Badge>
-          <Badge variant="green">Green</Badge>
-          <Badge variant="yellow">Yellow</Badge>
-          <Badge variant="outline">Outline</Badge>
+        <h2 className="text-2xl font-heading mb-3">Card</h2>
+        <Grid>
+          <Card>
+            <CardHeader>Header</CardHeader>
+            <CardContent>
+              This is card content. Perfect for dashboards or lists.
+            </CardContent>
+            <CardFooter>
+              <Button size="sm">Action</Button>
+            </CardFooter>
+          </Card>
+
+          <Card>
+            <CardContent>
+              Card with only content. Clean for small UI blocks.
+            </CardContent>
+          </Card>
+        </Grid>
+      </section>
+
+      {/* Layout */}
+      <section>
+        <h2 className="text-2xl font-heading mb-3">Layout Helpers</h2>
+        <div className="space-y-3">
+          <div className="rounded-xl border p-4">
+            <strong className="font-heading">Container:</strong> Wraps content with consistent width.
+          </div>
+
+          <div className="rounded-xl border p-4">
+            <strong className="font-heading">Grid:</strong> Responsive grid helper (2 → 3 → 4 cols).
+          </div>
         </div>
       </section>
-    </div>
+    </Container>
   );
 }
