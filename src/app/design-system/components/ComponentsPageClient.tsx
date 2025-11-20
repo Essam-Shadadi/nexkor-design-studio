@@ -12,6 +12,8 @@ import { Modal } from "@/components/ui/Modal";
 import { Drawer } from "@/components/ui/Drawer";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { ToastProvider, useToast } from "@/components/ui/Toast";
+import { motion } from "framer-motion";
+import { fade, fadeUp, slideLeft, scaleIn, stagger } from "@/lib/motion";
 
 function ComponentGalleryInner() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -132,6 +134,91 @@ function ComponentGalleryInner() {
           </div>
         </div>
       </section>
+      {/* Motion */}
+<section>
+  <h2 className="text-2xl font-heading mb-3">Motion</h2>
+  <p className="text-gray-600 dark:text-gray-300 mb-6">
+    These are the reusable animation presets available in the Nexkor Motion System.
+  </p>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {/* Fade */}
+    <motion.div
+      variants={fade}
+      initial="hidden"
+      animate="show"
+      className="p-6 rounded-xl border bg-gray-50 dark:bg-nk-charcoal/60 shadow-sm"
+    >
+      <h3 className="font-heading text-lg mb-2">Fade</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        Simple opacity transition.
+      </p>
+    </motion.div>
+
+    {/* Fade Up */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+      className="p-6 rounded-xl border bg-gray-50 dark:bg-nk-charcoal/60 shadow-sm"
+    >
+      <h3 className="font-heading text-lg mb-2">Fade Up</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        Fade with upward motion.
+      </p>
+    </motion.div>
+
+    {/* Slide Left */}
+    <motion.div
+      variants={slideLeft}
+      initial="hidden"
+      animate="show"
+      className="p-6 rounded-xl border bg-gray-50 dark:bg-nk-charcoal/60 shadow-sm"
+    >
+      <h3 className="font-heading text-lg mb-2">Slide Left</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        Horizontal slide-in animation.
+      </p>
+    </motion.div>
+
+    {/* Scale */}
+    <motion.div
+      variants={scaleIn}
+      initial="hidden"
+      animate="show"
+      className="p-6 rounded-xl border bg-gray-50 dark:bg-nk-charcoal/60 shadow-sm"
+    >
+      <h3 className="font-heading text-lg mb-2">Scale In</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300">
+        Subtle zoom-in transition.
+      </p>
+    </motion.div>
+
+    {/* Stagger Demo */}
+    <motion.div
+      variants={stagger(0.15)}
+      initial="hidden"
+      animate="show"
+      className="p-6 rounded-xl border bg-gray-50 dark:bg-nk-charcoal/60 shadow-sm"
+    >
+      <h3 className="font-heading text-lg mb-4">Stagger</h3>
+      <div className="flex gap-3">
+        {[1, 2, 3].map((n) => (
+          <motion.div
+            key={n}
+            variants={fadeUp}
+            className="px-3 py-2 rounded-lg bg-white dark:bg-nk-charcoal border text-sm"
+          >
+            Item {n}
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+
+  </div>
+</section>
+
     </Container>
   );
 }
