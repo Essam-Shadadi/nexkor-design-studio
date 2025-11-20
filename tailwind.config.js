@@ -1,32 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: 'class',
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-     container: {
-    center: true,
-    padding: "1rem",
-    screens: { "2xl": "1280px" }
-  },
     extend: {
       colors: {
         nk: {
-          blue: "#1A73E8", // Primary
-          charcoal: "#111827", // Deep gray
+          blue: "#1A73E8",
+          charcoal: "#111827",
           green: "#10B981",
           yellow: "#FACC15",
           gray: "#E5E7EB",
           bg: "#F9FAFB",
           bgDark: "#0B1220",
-        },
+        }
       },
       fontFamily: {
-        heading: ["var(--font-heading)"],
-        body: ["var(--font-body)"],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
       },
       borderRadius: { xl: "1rem", "2xl": "1.5rem" },
       transitionDuration: { 300: "300ms", 500: "500ms" },
-    },
+    }
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms"),
+  ],
 };

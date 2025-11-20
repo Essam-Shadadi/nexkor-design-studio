@@ -33,6 +33,7 @@
     "@storybook/addon-vitest": "^10.0.7",
     "@storybook/nextjs": "^10.0.8",
     "@storybook/nextjs-vite": "^10.0.7",
+    "@tailwindcss/forms": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
