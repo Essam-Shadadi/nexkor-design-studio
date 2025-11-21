@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import { Header } from "@/components/layout/Header";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,8 +33,10 @@ export default function RootLayout({
       <body className="bg-nk-bg text-nk-charcoal font-body antialiased dark:bg-nk-bgDark dark:text-nk-gray">
         <ThemeProvider>
           <MotionProvider>
-            <Header />
-            {children}
+            <Navbar />
+            <main className="pt-16">
+              {children}
+            </main>
             <Footer />
           </MotionProvider>
         </ThemeProvider>
