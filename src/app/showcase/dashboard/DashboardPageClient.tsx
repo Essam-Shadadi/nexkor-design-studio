@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
+import Link from "next/link";
 
 type System = {
   name: string;
@@ -69,6 +70,14 @@ export default function DashboardPageClient() {
             <p className="text-xs text-gray-500 dark:text-gray-400">
               Example dashboard built with Nexkor Design Studio.
             </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+  Secure Access demo:{" "}
+  <Link href="/showcase/auth" className="text-nk-blue hover:underline">
+    /showcase/auth
+  </Link>
+</p>
+
+            
           </div>
 
           <Card>

@@ -71,10 +71,16 @@ export default function LandingPageClient() {
               </Button>
             </Link>
             <Link href="/showcase/dashboard">
-    <Button variant="secondary" size="lg">
-      Open Dashboard Demo
-    </Button>
-  </Link>
+              <Button variant="secondary" size="lg">
+                Open Dashboard Demo
+              </Button>
+          </Link>
+          <Link href="/showcase/auth">
+            <Button variant="secondary" size="lg">
+              Try auth flow
+            </Button>
+          </Link>
+
           </motion.div>
 
           {/* Meta line */}
