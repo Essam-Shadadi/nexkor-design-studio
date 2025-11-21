@@ -16,7 +16,7 @@ html {
 
 /* Accessible focus styles */
 :where(button, a, input, select, textarea):focus-visible {
-  outline: 2px solid #1a73e8; /* nk.blue */
+  outline: 2px solid #076250ff; /* nk.blue */
   outline-offset: 2px;
 }
 

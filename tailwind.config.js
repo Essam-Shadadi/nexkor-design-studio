@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         nk: {
-          blue: "#1A73E8",
+          blue: "#076250ff",
           charcoal: "#111827",
           green: "#10B981",
           yellow: "#FACC15",

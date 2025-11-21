@@ -2,7 +2,7 @@ import ColorSwatch from "@/components/ds/ColorSwatch";
 import type { Hex } from "@/lib/color";
 
 const brand: { name: string; hex: Hex; on: "light" | "dark" }[] = [
-  { name: "Nexkor Blue", hex: "#1A73E8", on: "light" },
+  { name: "Nexkor Green", hex: "#076250ff", on: "light" },
   { name: "Deep Charcoal", hex: "#111827", on: "dark" },
   { name: "Accent Green", hex: "#10B981", on: "light" },
   { name: "Accent Yellow", hex: "#FACC15", on: "light" },
