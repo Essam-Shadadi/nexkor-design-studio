@@ -70,6 +70,11 @@ export default function LandingPageClient() {
                 View Motion System
               </Button>
             </Link>
+            <Link href="/showcase/dashboard">
+    <Button variant="secondary" size="lg">
+      Open Dashboard Demo
+    </Button>
+  </Link>
           </motion.div>
 
           {/* Meta line */}
@@ -160,6 +165,11 @@ export default function LandingPageClient() {
               <CardFooter className="flex items-center justify-between text-xs text-gray-500">
                 <span>Powered by Nexkor Design Studio</span>
                 <span>Responsive · Accessible · Fast</span>
+                 <Link href="/showcase/dashboard">
+      <Button size="sm" variant="ghost">
+        Open full dashboard
+      </Button>
+    </Link>
               </CardFooter>
             </Card>
           </motion.div>
