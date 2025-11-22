@@ -4,8 +4,9 @@ import { Poppins, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+
 import { LanguageProvider } from "@/components/lang/LanguageProvider";
+import Navbar from "@/components/layout/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
