@@ -13,7 +13,7 @@ export function Navbar() {
   return (
     <header className="h-16 border-b bg-white/70 dark:bg-nk-bgDark/70 backdrop-blur sticky top-0 z-40">
       <div className="mx-auto max-w-6xl h-full flex items-center justify-between px-6">
-        <Link href="/" className="font-heading text-xl text-nk-primary">
+        <Link href="/" className="font-heading text-xl text-nk-blue">
           Nexkor
         </Link>
 
