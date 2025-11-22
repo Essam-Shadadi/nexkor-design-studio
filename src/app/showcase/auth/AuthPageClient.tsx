@@ -10,10 +10,13 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { fadeUp } from "@/lib/motion";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 type Step = "login" | "mfa" | "success";
 
 export default function AuthPageClient() {
+  const { t } = useLanguage();
+
   const [step, setStep] = useState<Step>("login");
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -44,7 +47,7 @@ export default function AuthPageClient() {
       if (code === "123456") {
         setStep("success");
       } else {
-        setMfaError("Invalid code. Try 123456 for the demo.");
+        setMfaError(t("auth.mfa.error.invalidCode"));
       }
     }, 900);
   };
@@ -60,11 +63,12 @@ export default function AuthPageClient() {
             animate="show"
             className="text-center space-y-3"
           >
-            <Badge variant="blue">Auth showcase</Badge>
-            <h1 className="text-3xl font-heading">Secure access with Nexkor</h1>
+            <Badge variant="blue">{t("auth.badge")}</Badge>
+            <h1 className="text-3xl font-heading">
+              {t("auth.title")}
+            </h1>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              This page demonstrates a basic email/password login followed by a multi-factor
-              authentication step using Nexkor Design Studio components.
+              {t("auth.subtitle")}
             </p>
           </motion.div>
 
@@ -79,25 +83,27 @@ export default function AuthPageClient() {
               <section aria-label="Login form">
                 <Card>
                   <CardHeader>
-                    <p className="text-sm font-heading">Sign in to your workspace</p>
+                    <p className="text-sm font-heading">
+                      {t("auth.login.title")}
+                    </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Use any email and password to continue to the MFA step.
+                      {t("auth.login.subtitle")}
                     </p>
                   </CardHeader>
                   <CardContent>
                     <form className="space-y-4" onSubmit={handleLoginSubmit}>
                       <Input
                         id="email"
-                        label="Email"
+                        label={t("auth.login.emailLabel")}
                         type="email"
-                        placeholder="you@nexkor.dev"
+                        placeholder={t("auth.login.emailPlaceholder")}
                         required
                       />
                       <Input
                         id="password"
-                        label="Password"
+                        label={t("auth.login.passwordLabel")}
                         type="password"
-                        placeholder="••••••••"
+                        placeholder={t("auth.login.passwordPlaceholder")}
                         required
                       />
                       {loginError && (
@@ -108,24 +114,24 @@ export default function AuthPageClient() {
                       <div className="flex items-center justify-between text-xs">
                         <label className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300">
                           <input type="checkbox" className="rounded border-gray-300" />
-                          Remember this device
+                          {t("auth.login.rememberDevice")}
                         </label>
                         <button
                           type="button"
                           className="text-nk-blue hover:underline"
                         >
-                          Forgot password?
+                          {t("auth.login.forgotPassword")}
                         </button>
                       </div>
                       <Button type="submit" className="w-full" loading={loading}>
-                        Continue
+                        {t("auth.login.button")}
                       </Button>
                     </form>
                   </CardContent>
                   <CardFooter className="text-xs text-gray-500 dark:text-gray-400 flex justify-between">
-                    <span>Demo only – no real authentication.</span>
+                    <span>{t("auth.login.demoNotice")}</span>
                     <Link href="/showcase/dashboard" className="text-nk-blue hover:underline">
-                      View dashboard
+                      {t("auth.login.viewDashboard")}
                     </Link>
                   </CardFooter>
                 </Card>
@@ -136,10 +142,11 @@ export default function AuthPageClient() {
               <section aria-label="Multi-factor authentication">
                 <Card>
                   <CardHeader>
-                    <p className="text-sm font-heading">Multi-factor authentication</p>
+                    <p className="text-sm font-heading">
+                      {t("auth.mfa.title")}
+                    </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      We’ve sent a 6-digit code to your email. For the demo, use{" "}
-                      <span className="font-mono">123456</span>.
+                      {t("auth.mfa.subtitle")}
                     </p>
                   </CardHeader>
                   <CardContent>
@@ -147,8 +154,8 @@ export default function AuthPageClient() {
                       <Input
                         id="mfa-code"
                         name="mfa-code"
-                        label="Verification code"
-                        placeholder="Enter 6-digit code"
+                        label={t("auth.mfa.codeLabel")}
+                        placeholder={t("auth.mfa.codePlaceholder")}
                         maxLength={6}
                         inputMode="numeric"
                         pattern="[0-9]*"
@@ -156,16 +163,16 @@ export default function AuthPageClient() {
                         error={mfaError || undefined}
                       />
                       <Button type="submit" className="w-full" loading={loading}>
-                        Verify & continue
+                        {t("auth.mfa.button")}
                       </Button>
                       <button
                         type="button"
                         className="text-xs text-nk-blue hover:underline"
                         onClick={() =>
-                          setMfaError("New demo code requested. Use 123456 again.")
+                          setMfaError(t("auth.mfa.error.resendMessage"))
                         }
                       >
-                        Resend code
+                        {t("auth.mfa.resend")}
                       </button>
                     </form>
                   </CardContent>
@@ -175,9 +182,9 @@ export default function AuthPageClient() {
                       className="hover:underline"
                       onClick={() => setStep("login")}
                     >
-                      Back to login
+                      {t("auth.mfa.backToLogin")}
                     </button>
-                    <span>Secure Access · Demo flow</span>
+                    <span>{t("auth.mfa.footer")}</span>
                   </CardFooter>
                 </Card>
               </section>
@@ -191,26 +198,22 @@ export default function AuthPageClient() {
                       <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-nk-green text-white text-xs">
                         ✓
                       </span>
-                      You’re in.
+                      {t("auth.success.title")}
                     </p>
                   </CardHeader>
                   <CardContent className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-                    <p>
-                      Authentication complete. In a real Nexkor product, this would redirect you into a
-                      dashboard, portal, or admin experience.
-                    </p>
-                    <p>
-                      For the showcase, you can continue to the dashboard demo or explore more design
-                      system pages.
-                    </p>
+                    <p>{t("auth.success.body1")}</p>
+                    <p>{t("auth.success.body2")}</p>
                   </CardContent>
                   <CardFooter className="flex flex-wrap gap-3 justify-between">
                     <Link href="/showcase/dashboard">
-                      <Button size="sm">Open dashboard demo</Button>
+                      <Button size="sm">
+                        {t("auth.success.openDashboard")}
+                      </Button>
                     </Link>
                     <Link href="/design-system/components">
                       <Button size="sm" variant="ghost">
-                        Explore components
+                        {t("auth.success.exploreComponents")}
                       </Button>
                     </Link>
                   </CardFooter>

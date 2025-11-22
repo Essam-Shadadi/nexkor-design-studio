@@ -9,8 +9,11 @@ import { Container } from "@/components/ui/Container";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function LandingPageClient() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-nk-bg dark:bg-nk-bgDark">
       {/* HERO */}
@@ -22,13 +25,16 @@ export default function LandingPageClient() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Image
-              src="/logo.png"
-              alt="Nexkor Logo"
-              width={200}
-              height={200}
-              className="w-60 h-auto mx-auto drop-shadow-lg"
-            />
+            <div className="relative inline-flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full bg-nk-primary/20 blur-3xl" />
+              <Image
+                src="/logo.png"
+                alt="Nexkor Logo"
+                width={200}
+                height={200}
+                className="w-60 h-auto mx-auto drop-shadow-lg relative"
+              />
+            </div>
           </motion.div>
 
           {/* Headline */}
@@ -38,7 +44,7 @@ export default function LandingPageClient() {
             animate="show"
             className="text-4xl md:text-5xl font-heading font-bold tracking-tight text-nk-charcoal dark:text-white"
           >
-            Design that defines Nexkor.
+            {t("landing.hero.title")}
           </motion.h1>
 
           {/* Subheadline */}
@@ -49,8 +55,7 @@ export default function LandingPageClient() {
             transition={{ delay: 0.1 }}
             className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            A modern, human-centered design system powering every Nexkor experience — crafted for
-            clarity, accessibility, and performance.
+            {t("landing.hero.subtitle")}
           </motion.p>
 
           {/* CTAs */}
@@ -62,25 +67,26 @@ export default function LandingPageClient() {
             className="flex flex-wrap justify-center gap-4 pt-4"
           >
             <Link href="/design-system/components">
-              <Button size="lg">Explore Components</Button>
+              <Button size="lg">{t("landing.hero.primaryCta")}</Button>
             </Link>
 
             <Link href="/design-system/motion">
               <Button variant="ghost" size="lg">
-                View Motion System
+                {t("landing.hero.secondaryCta")}
               </Button>
             </Link>
+
             <Link href="/showcase/dashboard">
               <Button variant="secondary" size="lg">
-                Open Dashboard Demo
+                {t("landing.hero.dashboardCta")}
               </Button>
-          </Link>
-          <Link href="/showcase/auth">
-            <Button variant="secondary" size="lg">
-              Try auth flow
-            </Button>
-          </Link>
+            </Link>
 
+            <Link href="/showcase/auth">
+              <Button variant="secondary" size="lg">
+                {t("landing.hero.authCta")}
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Meta line */}
@@ -91,9 +97,9 @@ export default function LandingPageClient() {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-3 text-xs text-gray-500 dark:text-gray-400 pt-4"
           >
-            <span>Next.js · TypeScript · TailwindCSS · Framer Motion</span>
+            <span>{t("landing.hero.meta.tech")}</span>
             <span className="hidden md:inline">•</span>
-            <span>Design-led frontend for Nexkor demos</span>
+            <span>{t("landing.hero.meta.tagline")}</span>
           </motion.div>
         </Container>
       </section>
@@ -102,10 +108,11 @@ export default function LandingPageClient() {
       <section className="py-20">
         <Container>
           <div className="mb-10 text-center space-y-2">
-            <h2 className="text-3xl font-heading">Built for a complete demo ecosystem</h2>
+            <h2 className="text-3xl font-heading">
+              {t("landing.features.title")}
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
-              Nexkor Design Studio is the visual foundation for HR Portal, Cloud Monitor, Secure
-              Access, Smart Assistant, and more.
+              {t("landing.features.subtitle")}
             </p>
           </div>
 
@@ -123,10 +130,14 @@ export default function LandingPageClient() {
                 className="p-6 rounded-2xl border bg-white dark:bg-nk-charcoal/60 shadow-sm"
               >
                 <Badge variant="blue" className="mb-3">
-                  {feat.tag}
+                  {t(feat.tag)}
                 </Badge>
-                <h3 className="font-heading text-lg mb-2">{feat.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{feat.body}</p>
+                <h3 className="font-heading text-lg mb-2">
+                  {t(feat.title)}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  {t(feat.body)}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -136,7 +147,7 @@ export default function LandingPageClient() {
       {/* PREVIEW SECTION */}
       <section className="py-16 bg-gray-50 dark:bg-black/20 border-y border-gray-100 dark:border-gray-800">
         <Container className="grid gap-12 lg:grid-cols-[1.3fr,minmax(0,1fr)] items-center">
-          {/* Mock preview card */}
+          {/* Card preview */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -147,19 +158,25 @@ export default function LandingPageClient() {
               <CardHeader className="flex items-center justify-between">
                 <div className="space-y-1">
                   <p className="text-xs uppercase tracking-wide text-gray-500">
-                    Nexkor UI Preview
+                    {t("landing.preview.badge")}
                   </p>
-                  <h3 className="font-heading text-lg">Dashboard Shell</h3>
+                  <h3 className="font-heading text-lg">
+                    {t("landing.preview.title")}
+                  </h3>
                 </div>
-                <Badge variant="green">Live demo</Badge>
+                <Badge variant="green">{t("landing.preview.live")}</Badge>
               </CardHeader>
+
               <CardContent className="grid md:grid-cols-[0.9fr,1.1fr] gap-4 pt-4">
+                {/* Left Mock */}
                 <div className="space-y-3">
-                  <div className="h-8 rounded-lg bg-nk-blue/10 dark:bg-nk-blue/20" />
+                  <div className="h-8 rounded-lg bg-nk-primary/10 dark:bg-nk-primary/20" />
                   <div className="h-8 rounded-lg bg-gray-100 dark:bg-nk-charcoal/70" />
                   <div className="h-8 rounded-lg bg-gray-100 dark:bg-nk-charcoal/70" />
                   <div className="h-8 rounded-lg bg-gray-100 dark:bg-nk-charcoal/70" />
                 </div>
+
+                {/* Right Mock */}
                 <div className="space-y-3">
                   <div className="flex gap-3">
                     <div className="flex-1 h-16 rounded-xl bg-gray-100 dark:bg-nk-charcoal/70" />
@@ -168,14 +185,15 @@ export default function LandingPageClient() {
                   <div className="h-32 rounded-xl bg-gray-100 dark:bg-nk-charcoal/70" />
                 </div>
               </CardContent>
+
               <CardFooter className="flex items-center justify-between text-xs text-gray-500">
-                <span>Powered by Nexkor Design Studio</span>
-                <span>Responsive · Accessible · Fast</span>
-                 <Link href="/showcase/dashboard">
-      <Button size="sm" variant="ghost">
-        Open full dashboard
-      </Button>
-    </Link>
+                <span>{t("landing.preview.footerLeft")}</span>
+                <span>{t("landing.preview.footerRight")}</span>
+                <Link href="/showcase/dashboard">
+                  <Button size="sm" variant="ghost">
+                    {t("landing.preview.openDashboard")}
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           </motion.div>
@@ -190,20 +208,24 @@ export default function LandingPageClient() {
             className="space-y-4"
           >
             <h2 className="text-2xl font-heading">
-              One visual language. Many Nexkor experiences.
+              {t("landing.preview.sideTitle")}
             </h2>
+
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
-              The same components, tokens, and motion patterns power landing pages, dashboards, auth
-              flows, and internal tools across the entire Nexkor demo ecosystem.
+              {t("landing.preview.sideBody")}
             </p>
+
             <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-              <li>• Shared color & typography tokens</li>
-              <li>• Reusable layout and overlay primitives</li>
-              <li>• Motion presets for subtle, consistent animation</li>
+              <li>• {t("landing.preview.point1")}</li>
+              <li>• {t("landing.preview.point2")}</li>
+              <li>• {t("landing.preview.point3")}</li>
             </ul>
+
             <div className="pt-2">
               <Link href="/design-system/forms">
-                <Button variant="secondary">See form patterns</Button>
+                <Button variant="secondary">
+                  {t("landing.preview.formsCta")}
+                </Button>
               </Link>
             </div>
           </motion.div>
@@ -219,7 +241,7 @@ export default function LandingPageClient() {
             whileInView="show"
             className="text-3xl font-heading"
           >
-            Ready to use Nexkor Design Studio in every demo?
+            {t("landing.cta.title")}
           </motion.h2>
 
           <motion.p
@@ -229,8 +251,7 @@ export default function LandingPageClient() {
             transition={{ delay: 0.1 }}
             className="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto"
           >
-            Start from the design system pages, copy patterns into new products, and keep Nexkor’s
-            visual identity consistent across your entire portfolio.
+            {t("landing.cta.subtitle")}
           </motion.p>
 
           <motion.div
@@ -241,11 +262,12 @@ export default function LandingPageClient() {
             className="flex flex-wrap justify-center gap-4"
           >
             <Link href="/design-system/colors">
-              <Button size="lg">View design tokens</Button>
+              <Button size="lg">{t("landing.cta.tokens")}</Button>
             </Link>
+
             <Link href="/docs">
               <Button variant="ghost" size="lg">
-                Open documentation
+                {t("landing.cta.docs")}
               </Button>
             </Link>
           </motion.div>
@@ -255,20 +277,23 @@ export default function LandingPageClient() {
   );
 }
 
+//
+// Feature definitions in translation keys
+//
 const FEATURES = [
   {
-    tag: "Design System",
-    title: "Unified visual language",
-    body: "Colors, typography, spacing, and components that stay consistent across every Nexkor demo.",
+    tag: "landing.features.tag1",
+    title: "landing.features.item1.title",
+    body: "landing.features.item1.body",
   },
   {
-    tag: "Motion",
-    title: "Thoughtful micro-interactions",
-    body: "Framer Motion presets for fades, slides, scales, and staggered reveals — all respecting reduced motion.",
+    tag: "landing.features.tag2",
+    title: "landing.features.item2.title",
+    body: "landing.features.item2.body",
   },
   {
-    tag: "Engineering",
-    title: "Production-grade frontend",
-    body: "Next.js, TypeScript, Tailwind, and CI/CD pipelines ensure the demo is as solid as real product code.",
+    tag: "landing.features.tag3",
+    title: "landing.features.item3.title",
+    body: "landing.features.item3.body",
   },
 ];

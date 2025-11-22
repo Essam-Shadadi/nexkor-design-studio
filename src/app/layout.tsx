@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { LanguageProvider } from "@/components/lang/LanguageProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,11 +34,13 @@ export default function RootLayout({
       <body className="bg-nk-bg text-nk-charcoal font-body antialiased dark:bg-nk-bgDark dark:text-nk-gray">
         <ThemeProvider>
           <MotionProvider>
+            <LanguageProvider>
             <Navbar />
             <main className="pt-16">
               {children}
             </main>
             <Footer />
+            </LanguageProvider>
           </MotionProvider>
         </ThemeProvider>
       </body>
