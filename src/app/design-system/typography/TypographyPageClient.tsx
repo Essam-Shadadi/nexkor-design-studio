@@ -12,7 +12,7 @@ export default function TypographyPageClient() {
         {t("typography.title")}
       </h1>
 
-      <p className="text-gray-600 mb-8">
+      <p className="text-gray-300 mb-8">
         {t("typography.subtitle.part1")}{" "}
         <span className="font-heading text-nk-blue">
           {t("typography.subtitle.headingFont")}
@@ -63,7 +63,7 @@ export default function TypographyPageClient() {
               <p className="font-body">
                 {t("typography.weights.bodyText")}
               </p>
-              <p className="font-body text-sm text-gray-600 mt-2">
+              <p className="font-body text-sm text-gray-300 mt-2">
                 {t("typography.weights.caption")}
               </p>
             </div>

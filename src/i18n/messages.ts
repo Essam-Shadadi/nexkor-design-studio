@@ -15,7 +15,7 @@ const en: Messages = {
   // HERO
   "landing.hero.title": "Design that defines Nexkor.",
   "landing.hero.subtitle":
-    "A modern, human-centered design system powering every Nexkor experience — crafted for clarity, accessibility, and performance.",
+    "A modern, human-centered design system powering every Nexkor experience- crafted for clarity, accessibility, and performance.",
   "landing.hero.primaryCta": "Explore components",
   "landing.hero.secondaryCta": "View motion system",
   "landing.hero.dashboardCta": "View dashboard demo",
@@ -570,7 +570,7 @@ const ar: Messages = {
   // HERO
   "landing.hero.title": "تصميم يعرّف نكسكور.",
   "landing.hero.subtitle":
-    "نظام تصميم حديث، يركّز على الإنسان، يدعم جميع تجارب نكسكور — مصمم للوضوح وإمكانية الوصول والأداء.",
+    "نظام تصميم حديث، يركّز على الإنسان، يدعم جميع تجارب نكسكور - مصمم للوضوح وإمكانية الوصول والأداء.",
   "landing.hero.primaryCta": "استكشف المكوّنات",
   "landing.hero.secondaryCta": "عرض نظام الحركة",
   "landing.hero.dashboardCta": "معاينة لوحة التحكم",

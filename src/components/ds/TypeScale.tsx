@@ -12,23 +12,28 @@ const rows: Row[] = [
 
 export default function TypeScale() {
   return (
-    <div className="rounded-2xl border overflow-hidden">
-      <table className="w-full text-sm">
-        <thead className="bg-gray-50">
+    <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-nk-charcoal">
+      <table className="w-full text-sm text-left border-collapse">
+        <thead className="bg-gray-50 dark:bg-gray-800/60 text-gray-600 dark:text-gray-300">
           <tr>
-            <th className="text-left p-3">Token</th>
-            <th className="text-left p-3">Class</th>
-            <th className="text-left p-3">Preview</th>
+            <th className="px-4 py-3 font-medium">Token</th>
+            <th className="px-4 py-3 font-medium">Class</th>
+            <th className="px-4 py-3 font-medium">Preview</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-gray-700 dark:text-gray-100">
           {rows.map((r, i) => (
-            <tr key={i} className="border-t">
-              <td className="p-3">{r.size}</td>
-              <td className="p-3">
-                <code className="px-2 py-0.5 rounded bg-gray-100">{r.className}</code>
+            <tr
+              key={i}
+              className="border-t border-gray-200 dark:border-gray-700"
+            >
+              <td className="px-4 py-3">{r.size}</td>
+              <td className="px-4 py-3">
+                <code className="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-gray-700/80 dark:text-gray-200 font-mono">
+                  {r.className}
+                </code>
               </td>
-              <td className={`p-3 ${r.className} font-body`}>
+              <td className={`px-4 py-3 ${r.className} font-body leading-snug text-nk-charcoal dark:text-gray-50`}>
                 {r.sample}
               </td>
             </tr>

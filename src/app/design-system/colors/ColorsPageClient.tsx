@@ -5,7 +5,7 @@ import type { Hex } from "@/lib/color";
 import { useLanguage } from "@/components/lang/LanguageProvider";
 
 const brand: { key: string; hex: Hex; on: "light" | "dark" }[] = [
-  { key: "colors.brand.nexkorGreen", hex: "#076250ff", on: "light" },
+  { key: "colors.brand.nexkorGreen", hex: "#076250", on: "light" },
   { key: "colors.brand.deepCharcoal", hex: "#111827", on: "dark" },
   { key: "colors.brand.accentGreen", hex: "#10B981", on: "light" },
   { key: "colors.brand.accentYellow", hex: "#FACC15", on: "light" },
@@ -28,9 +28,9 @@ const semanticNotes = [
     usageKey: "colors.semantic.usage.bgDark",
   },
   {
-    token: "blue",
+    token: "Nexkor Green",
     className: "text-nk-blue bg-nk-blue/10",
-    hex: "#1A73E8",
+    hex: "#076250",
     usageKey: "colors.semantic.usage.blue",
   },
   {
